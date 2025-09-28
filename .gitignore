@@ -1,2 +1,11 @@
+# LS-PrePost files to ignore
 *.cfile
+*.msg
+
+# Python files to ignore
 .venv/
+__pycache__
+
+# Examples to ignore
+*.k
+*.unv
