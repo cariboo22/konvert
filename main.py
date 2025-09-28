@@ -18,13 +18,20 @@ file = args.filename
 filename = file.split('.')[0]
 
 # read the .k file and write each keyword line in a dictionnary
+print('Parsing k file...')
 keywords, keywords_param_name = parse_k_file(filename)
+print("done")
 
 ###----- write the .unv file -----###
+print("Converting k to unv...")
 lines = make_unv(keywords, keywords_param_name)
+print("done")
 
+print("Writing unv file...")
 out_filename = filename
 if args.output:
     out_filename = args.output
 
 write_file(out_filename, lines)
+print("done")
+print(f"{filename}.k successfully converted to {out_filename}.unv !")
