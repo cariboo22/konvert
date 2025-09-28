@@ -5,11 +5,12 @@ from k_reading import parse_k_file
 from unv_writing import make_unv
 from tools import write_file
 
-parser = argparse.ArgumentParser(prog='Program Name',
-                                 description='What the program does',
-                                 epilog='Text at the bottom of help')
+parser = argparse.ArgumentParser(prog='konvert',
+                                 description='Convert LS-PrePost .k mesh to I-DEAS Universal Format .unv (only for 2D mesh for now)',
+                                 epilog='...')
 
-parser.add_argument('filename')
+parser.add_argument('filename', help='The name of the .k file to convert')
+parser.add_argument('-o', '--output', help='Output unv filename, without .unv')
 
 args = parser.parse_args()
 
@@ -22,4 +23,8 @@ keywords, keywords_param_name = parse_k_file(filename)
 ###----- write the .unv file -----###
 lines = make_unv(keywords, keywords_param_name)
 
-write_file(filename, lines)
+out_filename = filename
+if args.output:
+    out_filename = args.output
+
+write_file(out_filename, lines)
