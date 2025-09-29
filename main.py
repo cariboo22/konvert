@@ -20,9 +20,9 @@ file_format = args.output_format
 
 match file_format:
     case 'unv':
-        from unv import *
+        from file_formats.unv import *
     case 'inp':
-        from inp import *
+        from file_formats.inp import *
     case _:
         print('Not a valid format')
         quit()
