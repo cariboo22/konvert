@@ -13,43 +13,42 @@ def convert_file(keywords,
                  format_lengths,
                  format_header,
                  format_separator):
-    unv = {}
+
+    fmt = {} # fmt mean format
 
     for k in keywords.keys():
         if k in k_to_format:
-            cur_unv_keyword = k_to_format[k]
-            unv[cur_unv_keyword] = []
+            cur_fmt_keyword = k_to_format[k]
+            fmt[cur_fmt_keyword] = []
 
             for l_k in keywords[k]:
                 cur_group = []
-                for l_unv in format_template[cur_unv_keyword]:
+                for l_fmt in format_template[cur_fmt_keyword]:
                     cur_line = []
 
-                    for param_unv in l_unv:
-                        index = get_k_param(param_unv, k, keywords_param_name)
+                    for param_fmt in l_fmt:
+                        index = get_k_param(param_fmt, k, keywords_param_name)
                         # print(index)
 
                         if type(index) == int:
                             cur_line.append(l_k[index])
                         else:
-                            cur_line.append(param_unv)
+                            cur_line.append(param_fmt)
 
                     cur_group.append(cur_line)
-                unv[cur_unv_keyword].append(cur_group)
+                fmt[cur_fmt_keyword].append(cur_group)
                         
-    # print(unv)
-
-    return make_file(unv, format_lengths, format_header, format_separator)
+    return make_file(fmt, format_lengths, format_header, format_separator)
 
 
-def make_file(unv, format_lengths, format_header, format_separator):
+def make_file(fmt, format_lengths, format_header, format_separator):
 
     lines = []
 
-    for k in unv.keys():
+    for k in fmt.keys():
         lines.append(format_header.rjust(6) + "\n")
         lines.append(k.rjust(6) + "\n")
-        for l in unv[k]:
+        for l in fmt[k]:
             j = 0
             for ll in l:
                 for i in range(len(ll)):
@@ -65,7 +64,5 @@ def make_file(unv, format_lengths, format_header, format_separator):
 
                 lines.append(ll)
         lines.append(format_header.rjust(6) + "\n")
-
-    # print(lines)
 
     return lines

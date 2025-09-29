@@ -5,12 +5,12 @@ from convert_file import convert_file
 from tools import write_file
 
 parser = argparse.ArgumentParser(prog='konvert',
-                                 description='Convert LS-PrePost .k mesh to I-DEAS Universal Format .unv (only for 2D mesh for now)',
+                                 description='Convert LS-PrePost .k mesh to :\n - I-DEAS Universal Format .unv (only for 2D mesh for now)\n - CalculiX ?inp (also only for 2D quad mesh)',
                                  epilog='...')
 
 parser.add_argument('filename', help='The name of the .k file to convert')
-parser.add_argument('output_format', help='The name of the .k file to convert')
-parser.add_argument('-on', '--output_name', help='Output unv filename, without .unv')
+parser.add_argument('output_format', help='The format to convert .k file to')
+parser.add_argument('-on', '--output_name', help='Output filename, without extention')
 
 args = parser.parse_args()
 
@@ -32,17 +32,17 @@ print('Parsing k file...')
 keywords, keywords_param_name = parse_k_file(filename)
 print("done")
 
-###----- convert the .unv file -----###
-print("Converting k to unv...")
+###----- convert the file to generic format -----###
+print(f"Converting k to {file_format}...")
 lines = convert_file(keywords, keywords_param_name, k_to_format, format_template, format_lengths, format_header, format_separator)
 print("done")
 
-###----- write the .unv file -----###
-print("Writing unv file...")
+###----- write to a text file -----###
+print(f"Writing {file_format} file...")
 out_filename = filename
 if args.output_name:
     out_filename = args.output_name
 
 write_file(out_filename, lines)
 print("done")
-print(f"{filename}.k successfully converted to {out_filename}.unv !")
+print(f"{filename}.k successfully converted to {out_filename}.{file_format} !")
