@@ -8,3 +8,6 @@ format_lengths = {
     "2411" : "[10]*4 + [25]*3",
     "2412" : "[10]*6 + [10]*4"
 }
+
+format_header = '-1'
+format_separator = ''

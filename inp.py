@@ -8,3 +8,6 @@ format_lengths = {
     "*NODE" : "[8]*1 + [13]*3",
     "*ELEMENT, TYPE=S4" : "[6]*1 + [7]*4"
 }
+
+format_header = ''
+format_separator = ','

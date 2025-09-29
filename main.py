@@ -34,7 +34,7 @@ print("done")
 
 ###----- convert the .unv file -----###
 print("Converting k to unv...")
-lines = convert_file(keywords, keywords_param_name, k_to_format, format_template, format_lengths)
+lines = convert_file(keywords, keywords_param_name, k_to_format, format_template, format_lengths, format_header, format_separator)
 print("done")
 
 ###----- write the .unv file -----###
