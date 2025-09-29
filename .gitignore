@@ -9,3 +9,7 @@ __pycache__
 # Examples to ignore
 *.k
 *.unv
+*.inp
+
+# Dev files
+*.sh
