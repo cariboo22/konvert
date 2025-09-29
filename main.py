@@ -43,6 +43,6 @@ out_filename = filename
 if args.output_name:
     out_filename = args.output_name
 
-write_file(out_filename, lines)
+write_file(out_filename, lines, file_format)
 print("done")
 print(f"{filename}.k successfully converted to {out_filename}.{file_format} !")
