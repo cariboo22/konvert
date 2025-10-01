@@ -1,6 +1,6 @@
 k_to_format = {
-    "*NODE": "2411",
-    "*ELEMENT_SHELL": "2412"
+    "*NODE": ["2411"],
+    "*ELEMENT_SHELL": ["2412"]
 }
 
 format_template = {

@@ -43,7 +43,7 @@ def parse_k_file(filename):
                 keywords[k].append(parsed_data)
             i+=1
 
-    # print(keywords)
+    print(keywords)
     # print(keywords_param_name)
 
     return keywords, keywords_param_name
