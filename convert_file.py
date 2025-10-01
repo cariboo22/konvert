@@ -1,6 +1,5 @@
 def get_k_param(param_name, keyword, keywords_param_name):
     if param_name in keywords_param_name[keyword]:
-        # print(param_name)
         i = keywords_param_name[keyword].index(param_name)
     else:
         i = 'no maching parameter'
@@ -14,7 +13,7 @@ def convert_file(keywords,
                  format_header,
                  format_separator):
 
-    fmt = {} # fmt mean format
+    fmt = {} # fmt means format
 
     for k in keywords.keys():
         if k in k_to_format:
@@ -28,7 +27,6 @@ def convert_file(keywords,
 
                     for param_fmt in l_fmt:
                         index = get_k_param(param_fmt, k, keywords_param_name)
-                        # print(index)
 
                         if type(index) == int:
                             cur_line.append(l_k[index])
@@ -53,6 +51,7 @@ def make_file(fmt, format_lengths, format_header, format_separator):
             for ll in l:
                 for i in range(len(ll)):
 
+                    # formatting the different lines with the good lengths
                     if i < len(ll) - 1:
                         ll[i] = ll[i].rjust(eval(format_lengths[k])[j]) + format_separator
                     else:
