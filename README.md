@@ -4,18 +4,21 @@ Konvert is a utility script written in Python for converting LS-Dyna keyword fil
 
 ## Installation
 
-<!Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.>
+Use pipx to install this package like this:
+```bash
+pipx install git+https://github.com/cariboo22/konvert.git@package
+```
 
 For now, to use the package, you have to clone the github repo. The goal would be to use pipx to install it.
 
 ## Usage
 
 ```bash
-python3 main.py <filename> <output_format>
+konvert <filename> <output_format>
 ```
 The filename is the keyword file (.k) to convert.
 
-The output_format that are currently supported are .unv and .inp.
+The output\_format that are currently supported are .unv and .inp.
 
 ## Project status
 
