@@ -5,7 +5,7 @@ k_to_format = {
 
 format_template = {
     "*NODE": [['nid', 'x', 'y', 'z']],
-    "*ELEMENT, TYPE=S4": [['eid', 'n1', 'n2', 'n3', 'j3']]
+    "*ELEMENT, TYPE=S4": [['eid', 'n1', 'n2', 'n3', 'n4']]
 }
 
 format_lengths = {
