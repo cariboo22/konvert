@@ -1,15 +1,21 @@
-# LS-PrePost files to ignore
+# LS-PrePost
 *.cfile
 *.msg
 
-# Python files to ignore
+# Python
 .venv/
 __pycache__
 
-# Examples to ignore
+# Examples
 *.k
 *.unv
 *.inp
 
-# Dev files
+# Dev
 *.sh
+*.old
+
+# Build
+build/
+src/*.egg-info/
+
